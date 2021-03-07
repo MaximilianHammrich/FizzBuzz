@@ -8,8 +8,7 @@
 
 ## Inspiration
 
-I got the inspiration for this simple project from a [video of Tom Scott]
-(https://www.youtube.com/watch?v=QPZ0pIK_wsc&ab_channel=TomScott), which I can
+I got the inspiration for this simple project from a [video of Tom Scott](https://www.youtube.com/watch?v=QPZ0pIK_wsc&ab_channel=TomScott), which I can
 only strongly recommend to watch, about exactly this project idea. The target
 was to create the game with a base for further, easy changes and extensions in
 an object-orientated manner.
