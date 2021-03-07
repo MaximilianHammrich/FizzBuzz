@@ -1,10 +1,11 @@
 package io.github.maximilianhammrich.fizzbuzz;
 
-public interface FizzBuzzGameCheck {
+public interface GameCheck {
+  /** Whether the number is positive on the check. */
   boolean matches(int number);
 
-  @Override
-  String toString();
+  /** The output-string which is displayed */
+  String output();
 
   default FizzBuzzBehaviour behaviour() {
     return FizzBuzzBehaviour.STACKING;

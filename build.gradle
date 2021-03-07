@@ -1,29 +1,38 @@
-allprojects {
-  apply plugin: 'java'
+plugins {
+  id 'java'
+}
+group 'io.github.maximilianhammrich.fizzbuzz'
+version '1.0.0-RELEASE'
 
-  group 'io.github.maximilianhammrich.fizzbuzz'
-  version '1.0.0-RELEASE'
+sourceCompatibility = 15
 
-  sourceCompatibility = 15
+repositories {
+  google()
+  mavenLocal()
+  mavenCentral()
+}
 
-  repositories {
-    google()
-    mavenLocal()
-    mavenCentral()
-  }
+dependencies {
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
+  implementation 'com.google.guava:guava:30.1-jre'
+}
 
-  dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
-    implementation 'com.google.guava:guava:30.1-jre'
-  }
+java {
+  withSourcesJar()
+  withJavadocJar()
+}
 
-  java {
-    withSourcesJar()
-    withJavadocJar()
-  }
+test {
+  useJUnitPlatform()
+}
 
-  test {
-    useJUnitPlatform()
+tasks.withType(JavaCompile) {
+  options.encoding = 'UTF-8'
+}
+
+jar {
+  from {
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
   }
 }
